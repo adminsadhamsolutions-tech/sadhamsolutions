@@ -5,12 +5,13 @@ import logo from '../assets/logo.png';
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = [
-    { label: 'Home', href: '/#home' },
-    { label: 'Services', href: '/#services' },
-    { label: 'About', href: '/#about' },
-    { label: 'Contact', href: '/#contact' },
-  ];
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Our Projects', href: '/projects' },
+  { label: 'About', href: '/#about' },
+  { label: 'Contact', href: '/#contact' },
+];
 
   const handleNavClick = () => {
     setIsOpen(false);

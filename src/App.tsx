@@ -7,35 +7,39 @@ import {
   AppDevelopmentPage,
   LogoDesignPage,
   DigitalMarketingPage,
-  ConstructionServicesPage
+  ConstructionServicesPage,
+  ProjectsPage
 } from './pages';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero />
-              <Services />
-              <About />
-              <Contact />
-              <Footer />
-            </>
-          }
-        />
-        <Route path="/website-development" element={<WebsiteDevelopmentPage />} />
-        <Route path="/app-development" element={<AppDevelopmentPage />} />
-        <Route path="/logo-design" element={<LogoDesignPage />} />
-        <Route path="/digital-marketing" element={<DigitalMarketingPage />} />
-        <Route path="/construction-services" element={<ConstructionServicesPage />} />
-        <Route path="/painting-services" element={<PaintingServicesPage />} />
-        <Route path="/services/:slug" element={<ServiceDetailPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <div className="flex-grow">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Services />
+                <About />
+                <Contact />
+              </>
+            }
+          />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/website-development" element={<WebsiteDevelopmentPage />} />
+          <Route path="/app-development" element={<AppDevelopmentPage />} />
+          <Route path="/logo-design" element={<LogoDesignPage />} />
+          <Route path="/digital-marketing" element={<DigitalMarketingPage />} />
+          <Route path="/construction-services" element={<ConstructionServicesPage />} />
+          <Route path="/painting-services" element={<PaintingServicesPage />} />
+          <Route path="/services/:slug" element={<ServiceDetailPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
   );
 }

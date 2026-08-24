@@ -5,3 +5,5 @@ export { AppDevelopmentPage } from './AppDevelopmentPage';
 export { LogoDesignPage } from './LogoDesignPage';
 export { DigitalMarketingPage } from './DigitalMarketingPage';
 export { ConstructionServicesPage } from './ConstructionServicesPage';
+export * from './ProjectsPage';
+// keep your other exports below
