@@ -80,8 +80,7 @@ const clientProjects: Project[] = [
 export const ProjectsPage: React.FC = () => {
   const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
 
-  const handleImageError = (id: number, fallbackUrl: string, target: HTMLImageElement) => {
-    // If microlink fails, try WordPress mshots; if that fails, use fallback UI image
+  const handleImageError = (fallbackUrl: string, target: HTMLImageElement) => {
     if (!target.dataset.triedBackup) {
       target.dataset.triedBackup = 'true';
       const encoded = encodeURIComponent(target.dataset.originalUrl || '');
@@ -144,7 +143,7 @@ export const ProjectsPage: React.FC = () => {
                       alt={project.title}
                       data-original-url={project.url}
                       onLoad={() => setLoadedImages((prev) => ({ ...prev, [project.id]: true }))}
-                      onError={(e) => handleImageError(project.id, project.fallbackImage, e.target as HTMLImageElement)}
+                      onError={(e) => handleImageError(project.fallbackImage, e.target as HTMLImageElement)}
                       className={`w-full h-full object-cover object-top pt-6 transition-all duration-700 ease-out group-hover:scale-105 ${
                         loadedImages[project.id] ? 'opacity-100' : 'opacity-90'
                       }`}
